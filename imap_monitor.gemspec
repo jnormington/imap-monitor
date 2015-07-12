@@ -14,7 +14,7 @@ Gem::Specification.new do |gm|
 
   gm.add_runtime_dependency 'mail','~> 2.6'
   gm.add_runtime_dependency 'celluloid','~> 0.17'
-  gm.add_development_dependency 'rspec', '~> 3.3.0'
+  gm.add_development_dependency 'rspec', '~> 3.3'
 
   gm.files         = `git ls-files`.split("\n")
   gm.test_files    = `git ls-files -- spec/*`.split("\n")
