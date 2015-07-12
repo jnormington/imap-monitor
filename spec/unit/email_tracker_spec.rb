@@ -35,17 +35,17 @@ describe 'Email Tracker' do
     end
   end
 
-  describe '#recieved_emails' do
-    it 'returns an empty array when @recieved_emails is nil' do
-      expect(subject.recieved_emails).to eq []
+  describe '#received_emails' do
+    it 'returns an empty array when @received_emails is nil' do
+      expect(subject.received_emails).to eq []
     end
 
     it 'returns an array of emails' do
-      subject.recieved_emails << 'Mail1'
-      expect(subject.recieved_emails).to eq ['Mail1']
+      subject.received_emails << 'Mail1'
+      expect(subject.received_emails).to eq ['Mail1']
 
-      subject.recieved_emails << 'Mail2'
-      expect(subject.recieved_emails).to eq ['Mail1', 'Mail2']
+      subject.received_emails << 'Mail2'
+      expect(subject.received_emails).to eq ['Mail1', 'Mail2']
     end
   end
 
@@ -128,10 +128,10 @@ describe 'Email Tracker' do
       subject.async.start
 
       # Little pause so the current thread doesn't jump ahead of the async thread
-      while(subject.recieved_emails.size < 3)
+      while(subject.received_emails.size < 3)
       end
 
-      expect(subject.recieved_emails.size).to eq 3
+      expect(subject.received_emails.size).to eq 3
       expect(observer.calls.size).to eq 3
 
       expect(observer.calls[0]).to eq "ImapMonitor::Email::Tracker, property: NewMail, value: Seq: 1000000"

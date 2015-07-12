@@ -1,5 +1,5 @@
 require 'mail'
-require 'celluloid'
+require 'celluloid/current'
 
 module ImapMonitor
   module Email
@@ -16,8 +16,8 @@ module ImapMonitor
         @options = options
       end
 
-      def recieved_emails
-        @recieved_emails ||= []
+      def received_emails
+        @received_emails ||= []
       end
 
       def start
@@ -51,7 +51,7 @@ module ImapMonitor
             emails.each do |fetched_data|
               if fetched_data.attr["UID"] > last_uid.attr["UID"]
                 new_mail = create_mail(fetched_data.seqno)
-                recieved_emails << new_mail
+                received_emails << new_mail
                 last_uid = fetched_data unless fetched_data.nil?
                 fire_change("NewMail", new_mail)
               end
