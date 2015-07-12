@@ -45,7 +45,7 @@ module ImapMonitor
         update_to_started_state
 
         while (monitoring?)
-          emails = fetch_emails(last_uid.seqno..-1)
+          emails = fetch_emails(last_uid.seqno)
 
           if !emails.nil?
             emails.each do |fetched_data|
