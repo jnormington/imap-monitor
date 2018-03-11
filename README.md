@@ -1,4 +1,4 @@
-#IMAP Monitor
+# IMAP Monitor
 
 In most scenarios we rely on email communication from most web applications using it for
 
@@ -10,7 +10,7 @@ In all cases there different approaches on how we implement the sending of these
  - external companies
  - background processes (different implementation variations)
 
-This allows you to check that; 
+This allows you to check that;
 
 a) The external company can handle such loads within a time frame and there are not any email dropouts.
 
@@ -19,7 +19,7 @@ b) If internally sending the background process implementation is the correct fo
 c) It can and also be used for testing from the outside and emails contain links to continue the journey.
 
 
-##Getting Started
+## Getting Started
  - Clone the repository
  - cd into the cloned directory
  - `gem build imap_monitor.gemspec`
@@ -88,7 +88,7 @@ ExampleObserver.new.go
  - As we have `ExampleObserver.new.go` at the bottom it will initialize and start and when 2 emails are received the email observer will instruct the tracker stop.
  - If you want to stop it earlier with CTRL+C then you can and it will be caught and call stop on the tracker. (Implemented in the observer)
 
-##Tests
+## Tests
  - When running `rpsec` on the cloned repository it will run all the unit specs.
  - There is a smoke directory under the specs which isn't ran during calling `rpsec`, this smoke test needs to be run specially with the following
 
@@ -102,11 +102,11 @@ ExampleObserver.new.go
 
  - When you run the spec - it will continously run until it receives an email - this is where you come in. Send an email to yourself. Once it receives one email it will stop itself and report a pass (or fail - if multiple are received in short succession.)
 
-##Limitations
+## Limitations
 
- - You can't rely on any current email host suchas google mail because there is throttling to the one email address in such large volumes. 
+ - You can't rely on any current email host suchas google mail because there is throttling to the one email address in such large volumes.
  - In this case a postfix
  email server should be setup with a mutt email client on a Ubuntu box for a realistic and un-throttled email receiptant.
 
-##Licence
+## Licence
 IMAP Monitor is released under the MIT License.
