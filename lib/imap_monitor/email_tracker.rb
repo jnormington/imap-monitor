@@ -1,15 +1,11 @@
 require 'mail'
-require 'celluloid/current'
 
 module ImapMonitor
   module Email
     class Tracker
-      include Celluloid
       include EmailEvent::Observable
 
       attr_reader :options, :connector, :started_at
-
-      finalizer :stop
 
       def initialize(connector, options = {:directory => 'INBOX'})
         @connector = connector
